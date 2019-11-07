@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { TodoTextInput } from 'app/components/TodoTextInput';
-import { TodoModel } from 'app/models/TodoModel';
+// import { TodoTextInput } from 'app/components/TodoTextInput';
+// import { TodoModel } from 'app/models/TodoModel';
+import {
+  Divider,
+  Step,
+  StepLabel,
+  Stepper,
+  Typography
+} from '@material-ui/core';
+import { ReportStep, REPORT_STEP_LABELS } from 'app/constants/steps';
 
 export interface HeaderProps {
-  addTodo: (todo: Partial<TodoModel>) => any;
+  activeStep: ReportStep;
 }
 
 export interface HeaderState {
@@ -11,22 +19,23 @@ export interface HeaderState {
 }
 
 export class Header extends React.Component<HeaderProps, HeaderState> {
-  private handleSave = (text: string) => {
-    if (text.length) {
-      this.props.addTodo({ text });
-    }
-  };
-
   render() {
     return (
-      <header>
-        <h1>Todos</h1>
-        <TodoTextInput
-          newTodo
-          onSave={this.handleSave}
-          placeholder="What needs to be done?"
-        />
-      </header>
+      <React.Fragment>
+        <Typography align={'center'} variant={'h4'}>
+          UM-SJTU-JI Physics Lab (VP141/241) Report Generator
+        </Typography>
+        <Divider component={'hr'}/>
+        <Stepper activeStep={this.props.activeStep}>
+          {REPORT_STEP_LABELS.map((label, index) => {
+            return (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>
+      </React.Fragment>
     );
   }
 }

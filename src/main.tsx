@@ -6,6 +6,8 @@ import { TodoModel } from 'app/models';
 import { createStores } from 'app/stores';
 import { App } from 'app';
 
+import 'typeface-roboto';
+
 // default fixtures for TodoStore
 const defaultTodos = [
   new TodoModel('Use Mobx'),
