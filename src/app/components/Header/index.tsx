@@ -1,8 +1,9 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 // import { TodoTextInput } from 'app/components/TodoTextInput';
 // import { TodoModel } from 'app/models/TodoModel';
 import {
-  Divider,
+  // Divider,
   Step,
   StepLabel,
   Stepper,
@@ -25,9 +26,9 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         <Typography align={'center'} variant={'h4'}>
           UM-SJTU-JI Physics Lab (VP141/241) Report Generator
         </Typography>
-        <Divider component={'hr'}/>
-        <Stepper activeStep={this.props.activeStep}>
-          {REPORT_STEP_LABELS.map((label, index) => {
+        {/*<Divider component={'hr'}/>*/}
+        <Stepper activeStep={this.props.activeStep} alternativeLabel={true}>
+          {_.map(REPORT_STEP_LABELS, (label, index) => {
             return (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
