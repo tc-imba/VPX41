@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 // import { TodoModel } from 'app/models/TodoModel';
 import {
   // Divider,
+  Button,
   Step,
   StepLabel,
   Stepper,
@@ -36,6 +37,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
             );
           })}
         </Stepper>
+        <div>
+          {this.props.activeStep === REPORT_STEP_LABELS. }
+          <Button href={}>Next</Button>
+          <Button href={}>Back</Button>
+        </div>
       </React.Fragment>
     );
   }
