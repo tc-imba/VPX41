@@ -7,7 +7,7 @@ import { Header } from 'app/components/Header';
 import { STORE_ROUTER } from 'app/constants';
 import {
   Container,
-  CssBaseline
+  CssBaseline, Paper
 } from '@material-ui/core';
 
 export interface MainProps extends RouteComponentProps<any> {
@@ -27,9 +27,12 @@ export class Main extends React.Component<MainProps, MainState> {
   render() {
     return (
       <Container maxWidth={'lg'}>
-        <CssBaseline />
-        <Header activeStep={0} />
+        <CssBaseline/>
+        <br/>
+        <Paper>
+          <Header activeStep={0}/>
+        </Paper>
       </Container>
-    )
+    );
   }
 }
